@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  Immersive Example
+//
+//  Created by Manjit Bedi on 2024-12-13.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APPLICATION_API_KEY = D391MGJ3AO8XR1IFN6XYU2IVHUFS68EI
+API_ENVIRONMENT = STAGING
