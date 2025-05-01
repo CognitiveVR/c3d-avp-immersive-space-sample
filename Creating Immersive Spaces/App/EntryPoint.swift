@@ -62,7 +62,7 @@ struct EntryPoint: App {
             do {
                 try await core.configure(with: settings)
                 // Register code related to dynamic objects
-//                configureDynamicObject(settings)
+                configureDynamicObject(settings)
                 core.config?.shouldEndSessionOnBackground = false
             } catch {
                 print("Failed to configure Cognitive3D Analytics: \(error)")
@@ -70,5 +70,12 @@ struct EntryPoint: App {
         }
     }
 
+    fileprivate func configureDynamicObject(_ settings: CoreSettings) {
+        // To use the dynamic object component, we need to register it.
+        DynamicComponent.registerComponent()
+
+        // The component will be used with this custom system.
+        DynamicObjectSystem.registerSystem()
+    }
 }
 

@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A1BC1672DC42E0D00E900C3 /* ImmersiveViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BC1662DC42E0D00E900C3 /* ImmersiveViewExtension.swift */; };
 		4A6CFAC72DC2A4B50058E77A /* Cognitive3DAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4A6CFAC62DC2A4B50058E77A /* Cognitive3DAnalytics */; };
 		DF02DE882BE17458008047B2 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF02DE872BE17458008047B2 /* Entity.swift */; };
 		DF58AE532BCDC24600C8F737 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF58AE522BCDC24600C8F737 /* MainView.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		49EF24E0097EDB24B25E6D26 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4A1BC1662DC42E0D00E900C3 /* ImmersiveViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveViewExtension.swift; sourceTree = "<group>"; };
 		4A6CFAC82DC2A8040058E77A /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		6E433C6B962E4EF456438C43 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		C7B1124CDEC76118460E5FDF /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
@@ -34,6 +36,21 @@
 		F54EC6302C2B88C500BF3BDC /* TurnTableSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTableSystem.swift; sourceTree = "<group>"; };
 		F5771BF92C52FC960050FEEB /* EntryPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4A1BC1652DC42D5600E900C3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DynamicComponent.swift,
+				DynamicObjectSystem.swift,
+			);
+			target = DF58AE482BCDC24600C8F737 /* Integrating an Immersive Space */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4A1BC1602DC42CE900E900C3 /* DynamicObjects */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (4A1BC1652DC42D5600E900C3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = DynamicObjects; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DF58AE462BCDC24600C8F737 /* Frameworks */ = {
@@ -108,6 +125,7 @@
 				B5AC38AA2BFE4CCF00E1D310 /* Extensions */,
 				DF02DE862BE17381008047B2 /* Resources */,
 				F54EC6332C2B89F100BF3BDC /* App */,
+				4A1BC1602DC42CE900E900C3 /* DynamicObjects */,
 			);
 			path = "Creating Immersive Spaces";
 			sourceTree = "<group>";
@@ -125,6 +143,7 @@
 			children = (
 				DF58AE522BCDC24600C8F737 /* MainView.swift */,
 				DF58AE612BCDC2C800C8F737 /* ImmersionView.swift */,
+				4A1BC1662DC42E0D00E900C3 /* ImmersiveViewExtension.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A1BC1672DC42E0D00E900C3 /* ImmersiveViewExtension.swift in Sources */,
 				DF02DE882BE17458008047B2 /* Entity.swift in Sources */,
 				F5771BFA2C52FC960050FEEB /* EntryPoint.swift in Sources */,
 				DF58AE532BCDC24600C8F737 /* MainView.swift in Sources */,

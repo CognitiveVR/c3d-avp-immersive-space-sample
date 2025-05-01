@@ -35,15 +35,141 @@ struct ImmersiveView: View {
 
             // Register the `TurnTableSystem` to handle the rotation logic.
             TurnTableSystem.registerSystem()
+            
+            // add one asteroid in the middle of the halo to test dynamic objects
+//            let dynamicObjectEntity = createDynamicObjectEntity()
+//            rootEntity.addChild(dynamicObjectEntity)
 
+            // create a cube in the middle of the asteroid halo
+            let cubeEntity = createCube()
+            rootEntity.addChild(cubeEntity)
+            configureDynamicObjects(rootEntity: cubeEntity)
+            
             // Add the entity to the view.
             content.add(rootEntity)
+
+//            if let firstEntity = content.entities.first {
+//                print("C3D session state \(Cognitive3DAnalyticsCore.shared.isSessionActive)")
+//                configureDynamicObjects(rootEntity: firstEntity)
+//            }
+
         }
         .onDisappear() {
             // End the session
             Task {
                 await Cognitive3DAnalyticsCore.shared.endSession()
             }
+        }.gesture(tapGesture)
+    }
+    
+    func createDynamicObjectEntity() -> Entity {
+        let entity = Entity()
+
+        return entity
+    }
+    
+    // MARK: - RealityKit working with entities
+    /// Create a cube & add a `DynamicComponent` to it.
+    /// For hit detection to work, we need to add: an input target and collision component.
+    private func createCube() -> ModelEntity {
+        let size: Float = 0.2 // Cube with 20 cm sides
+
+        let cubeEntity = ModelEntity(mesh: .generateBox(size: size))
+
+        // Apply material to the cube
+        let material = SimpleMaterial(color: .purple, isMetallic: true)
+        cubeEntity.model?.materials = [material]
+
+        // Set the position of the cube (center of the asteroid halo)
+        cubeEntity.position = [0, 0, 0]
+
+        // Add collision component - this is needed for raycasts
+        cubeEntity.collision = CollisionComponent(
+            shapes: [.generateBox(size: SIMD3(repeating: size))],
+            mode: .default,
+            filter: .default
+        )
+
+        // Add input component - this is needed for spatial taps
+        cubeEntity.components.set(InputTargetComponent())
+
+        // Now to add a custom conpoment to faciitate dynamic object snapshot recording.
+        var component = DynamicComponent()
+        component.name = "Asteroid"
+        component.mesh = "Asteroid"
+        component.dynamicId = "d46cdb90-25a7-4bd6-ba44-9227aff95135"
+        cubeEntity.components.set(component)
+        return cubeEntity
+    }
+
+    /// Momentarily change the material on the entity.
+    private func objectSpatialTapFeedback(_ modelComponent: inout ModelComponent, _ tappedEntity: Entity) {
+        print("entity tapped on \(tappedEntity)")
+
+        // Store the original materials before changing them
+        let originalMaterials = modelComponent.materials
+
+        let highlightMaterial = SimpleMaterial(
+            color: .green,
+            roughness: 0.5,
+            isMetallic: false
+        )
+
+        // Apply the new material
+        modelComponent.materials = [highlightMaterial]
+        tappedEntity.components[ModelComponent.self] = modelComponent
+
+        Task {
+            try? await Task.sleep(for: .seconds(1))
+
+            // Restore the original materials
+            if var updatedModelComponent = tappedEntity.components[ModelComponent.self] {
+                updatedModelComponent.materials = originalMaterials
+                tappedEntity.components[ModelComponent.self] = updatedModelComponent
+            }
+        }
+    }
+
+    // MARK: Tap gesture
+    /// Test if the tapped object has a dynamic object component & also if it has a collision component.
+    /// The collision component is needed for doing gaze tracking with ray casts.
+    var tapGesture: some Gesture {
+        SpatialTapGesture()
+            .targetedToAnyEntity()
+            .onEnded { value in
+                print("Spatial tag gesture")
+
+                let tappedEntity = value.entity
+
+                // Test to find component and its value
+                if let component = tappedEntity.components[DynamicComponent.self] {
+                    print("Found dynamicId: \(component.dynamicId)")
+                    createEvent(dynamicId: component.dynamicId)
+                }
+
+                // Check if the entity has a ModelComponent
+                if var modelComponent = tappedEntity.components[ModelComponent.self] {
+                    objectSpatialTapFeedback(&modelComponent, tappedEntity)
+                }
+            }
+    }
+
+    // MARK: C3D analytics
+    private func createEvent(dynamicId: String) {
+        let core = Cognitive3DAnalyticsCore.shared
+
+        let event = CustomEvent(
+            name: "tapEvent",
+            properties: [
+                "description": "User has tapped on a object in the scene"
+            ],
+            dynamicObjectId: dynamicId,
+            core: core
+        )
+
+        Task {
+            let success =  event.sendWithHighPriority()
+            print("custom event \(success)")
         }
     }
 }

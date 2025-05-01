@@ -98,14 +98,9 @@ extension Entity {
         )
 
         // send the event
-        Task {
-            try? await Task.sleep(nanoseconds: 1_000_000_000)
+        let success = rocksCreatedEvent.send()
+        print(rocksCreatedEvent, success)
 
-            let success = await rocksCreatedEvent.send()
-            print(rocksCreatedEvent, success)
-
-        }
-        
         // set a custom session property with the number of rocks created
         Cognitive3DAnalyticsCore.shared.setSessionProperty(key: "numRocks", value: modelCount)
 
