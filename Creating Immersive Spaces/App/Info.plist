@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>API_ENVIRONMENT</key>
+	<string>$(API_ENVIRONMENT)</string>
+	<key>APPLICATION_API_KEY</key>
+	<string>$(APPLICATION_API_KEY)</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationPreferredDefaultSceneSessionRole</key>
@@ -11,9 +15,5 @@
 		<key>UISceneConfigurations</key>
 		<dict/>
 	</dict>
-	<key>APPLICATION_API_KEY</key>
-	<string>$(APPLICATION_API_KEY)</string>
-	<key>API_ENVIRONMENT</key>
-	<string>$(API_ENVIRONMENT)</string>
 </dict>
 </plist>

@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A1BC1672DC42E0D00E900C3 /* ImmersiveViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BC1662DC42E0D00E900C3 /* ImmersiveViewExtension.swift */; };
+		4A2E6D992DC54B6600B678F3 /* DynamicComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6D972DC54B6600B678F3 /* DynamicComponent.swift */; };
+		4A2E6D9A2DC54B6600B678F3 /* DynamicObjectSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6D982DC54B6600B678F3 /* DynamicObjectSystem.swift */; };
 		4A6CFAC72DC2A4B50058E77A /* Cognitive3DAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4A6CFAC62DC2A4B50058E77A /* Cognitive3DAnalytics */; };
 		DF02DE882BE17458008047B2 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF02DE872BE17458008047B2 /* Entity.swift */; };
 		DF58AE532BCDC24600C8F737 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF58AE522BCDC24600C8F737 /* MainView.swift */; };
@@ -20,6 +23,9 @@
 
 /* Begin PBXFileReference section */
 		49EF24E0097EDB24B25E6D26 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4A1BC1662DC42E0D00E900C3 /* ImmersiveViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveViewExtension.swift; sourceTree = "<group>"; };
+		4A2E6D972DC54B6600B678F3 /* DynamicComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicComponent.swift; sourceTree = "<group>"; };
+		4A2E6D982DC54B6600B678F3 /* DynamicObjectSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicObjectSystem.swift; sourceTree = "<group>"; };
 		4A6CFAC82DC2A8040058E77A /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		6E433C6B962E4EF456438C43 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		C7B1124CDEC76118460E5FDF /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
@@ -34,6 +40,10 @@
 		F54EC6302C2B88C500BF3BDC /* TurnTableSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTableSystem.swift; sourceTree = "<group>"; };
 		F5771BF92C52FC960050FEEB /* EntryPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4A1BC1602DC42CE900E900C3 /* DynamicObjects */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DynamicObjects; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DF58AE462BCDC24600C8F737 /* Frameworks */ = {
@@ -59,7 +69,6 @@
 		B5AC38AA2BFE4CCF00E1D310 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DF02DE872BE17458008047B2 /* Entity.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -103,11 +112,12 @@
 		DF58AE4B2BCDC24600C8F737 /* Creating Immersive Spaces */ = {
 			isa = PBXGroup;
 			children = (
-				F54EC6322C2B89CC00BF3BDC /* Views */,
-				F54EC62F2C2B88A300BF3BDC /* Systems */,
-				B5AC38AA2BFE4CCF00E1D310 /* Extensions */,
 				DF02DE862BE17381008047B2 /* Resources */,
 				F54EC6332C2B89F100BF3BDC /* App */,
+				4A1BC1602DC42CE900E900C3 /* DynamicObjects */,
+				F54EC6322C2B89CC00BF3BDC /* Views */,
+				B5AC38AA2BFE4CCF00E1D310 /* Extensions */,
+				F54EC62F2C2B88A300BF3BDC /* Systems */,
 			);
 			path = "Creating Immersive Spaces";
 			sourceTree = "<group>";
@@ -115,7 +125,6 @@
 		F54EC62F2C2B88A300BF3BDC /* Systems */ = {
 			isa = PBXGroup;
 			children = (
-				F54EC6302C2B88C500BF3BDC /* TurnTableSystem.swift */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -123,8 +132,6 @@
 		F54EC6322C2B89CC00BF3BDC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DF58AE522BCDC24600C8F737 /* MainView.swift */,
-				DF58AE612BCDC2C800C8F737 /* ImmersionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -133,6 +140,13 @@
 			isa = PBXGroup;
 			children = (
 				F5771BF92C52FC960050FEEB /* EntryPoint.swift */,
+				DF58AE522BCDC24600C8F737 /* MainView.swift */,
+				DF58AE612BCDC2C800C8F737 /* ImmersionView.swift */,
+				4A1BC1662DC42E0D00E900C3 /* ImmersiveViewExtension.swift */,
+				DF02DE872BE17458008047B2 /* Entity.swift */,
+				F54EC6302C2B88C500BF3BDC /* TurnTableSystem.swift */,
+				4A2E6D972DC54B6600B678F3 /* DynamicComponent.swift */,
+				4A2E6D982DC54B6600B678F3 /* DynamicObjectSystem.swift */,
 				DF58AE5B2BCDC24900C8F737 /* Info.plist */,
 				DF58AE562BCDC24900C8F737 /* Assets.xcassets */,
 				DF58AE592BCDC24900C8F737 /* Preview Assets.xcassets */,
@@ -154,6 +168,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				4A1BC1602DC42CE900E900C3 /* DynamicObjects */,
 			);
 			name = "Integrating an Immersive Space";
 			productName = Immersion;
@@ -215,10 +232,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A1BC1672DC42E0D00E900C3 /* ImmersiveViewExtension.swift in Sources */,
 				DF02DE882BE17458008047B2 /* Entity.swift in Sources */,
 				F5771BFA2C52FC960050FEEB /* EntryPoint.swift in Sources */,
 				DF58AE532BCDC24600C8F737 /* MainView.swift in Sources */,
 				F54EC6312C2B88CB00BF3BDC /* TurnTableSystem.swift in Sources */,
+				4A2E6D992DC54B6600B678F3 /* DynamicComponent.swift in Sources */,
+				4A2E6D9A2DC54B6600B678F3 /* DynamicObjectSystem.swift in Sources */,
 				DF58AE622BCDC2C800C8F737 /* ImmersionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,9 +371,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "Creating\\ Immersive\\ Spaces/App";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 82LTVZJPTV;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -363,7 +383,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.immersion${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cognitive3d.sample.immersivespaces;
 				PRODUCT_NAME = "Creating Immersive Spaces";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
@@ -380,9 +400,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "Creating\\ Immersive\\ Spaces/App";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 82LTVZJPTV;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -392,7 +412,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.immersion${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cognitive3d.sample.immersivespaces;
 				PRODUCT_NAME = "Creating Immersive Spaces";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";

@@ -47,8 +47,19 @@ struct EntryPoint: App {
         let apiKey = Bundle.main.object(forInfoDictionaryKey: "APPLICATION_API_KEY") as? String ?? "default-value"
         settings.apiKey = apiKey
 
-        core.setParticipantId("1234")
-        core.setParticipantFullName("Matt Manuel")
+        // get the device UUID
+        let uuidString = ProcessInfo.processInfo.environment["SIMULATOR_UDID"] ?? "Unknown UUID"
+        
+        // core.setParticipantId("1234")
+        core.setParticipantId(uuidString)
+        
+        // create a short list of random names in a string array
+        let randomFirstNames = ["Alice", "Bob", "Charlie", "David", "Emma"]
+        let randomLastNames = ["Anderson", "Brown", "Clark", "Davis", "Evans"]
+        let randomFirstNameIndex = Int.random(in: 0..<randomFirstNames.count)
+        let randomLastNameIndex = Int.random(in: 0..<randomLastNames.count)
+        let randomFullName = "\(randomFirstNames[randomFirstNameIndex]) \(randomLastNames[randomLastNameIndex])"
+        core.setParticipantFullName(randomFullName)
 
         // send some custom session properties
         Cognitive3DAnalyticsCore.shared.setSessionProperty(key: "stringProperty", value: "This is a lovely little string.")
@@ -62,7 +73,7 @@ struct EntryPoint: App {
             do {
                 try await core.configure(with: settings)
                 // Register code related to dynamic objects
-//                configureDynamicObject(settings)
+                configureDynamicObject(settings)
                 core.config?.shouldEndSessionOnBackground = false
             } catch {
                 print("Failed to configure Cognitive3D Analytics: \(error)")
@@ -70,5 +81,12 @@ struct EntryPoint: App {
         }
     }
 
+    fileprivate func configureDynamicObject(_ settings: CoreSettings) {
+        // To use the dynamic object component, we need to register it.
+        DynamicComponent.registerComponent()
+
+        // The component will be used with this custom system.
+        DynamicObjectSystem.registerSystem()
+    }
 }
 
