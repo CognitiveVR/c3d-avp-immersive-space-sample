@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "asteroid-back-1024.png",
       "idiom" : "vision",
       "scale" : "2x"
     }
