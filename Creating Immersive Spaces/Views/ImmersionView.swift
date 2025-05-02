@@ -172,7 +172,7 @@ struct ImmersiveView: View {
         )
 
         Task {
-            let success =  event.sendWithHighPriority()
+            _ =  event.sendWithHighPriority()
 //            print("custom event \(success)")
         }
     }
