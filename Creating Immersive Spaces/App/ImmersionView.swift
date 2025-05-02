@@ -47,6 +47,15 @@ struct ImmersiveView: View {
             
             // Add the entity to the view.
             content.add(rootEntity)
+            // MARK: C3D SDK
+            // This is needed to perform ray casts & collision detection with the gaze tracker.
+            // If a gaze collides with a dynamic object, the dynamic object id gets added to the gaze record.
+            // The gaze record gets posted to the C3D back end.
+            if let entity = content.entities.first {
+                let core = Cognitive3DAnalyticsCore.shared
+                core.contentEntity = entity
+            }
+            
 
 //            if let firstEntity = content.entities.first {
 //                print("C3D session state \(Cognitive3DAnalyticsCore.shared.isSessionActive)")
