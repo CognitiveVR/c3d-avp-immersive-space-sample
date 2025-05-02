@@ -102,7 +102,7 @@ struct ImmersiveView: View {
         // Add input component - this is needed for spatial taps
         cubeEntity.components.set(InputTargetComponent())
 
-        // Now to add a custom conpoment to faciitate dynamic object snapshot recording.
+        // Now to add a custom component to facilitate dynamic object snapshot recording.
         var component = DynamicComponent()
         component.name = "Asteroid" // this is the dynamic object name on the Cognitive3D dashboard
         component.mesh = "asteroid" // this is the mesh file name that loads the GLTF on the Cognitive3D dashboard
@@ -133,7 +133,7 @@ struct ImmersiveView: View {
         tappedEntity.position = tappedEntityPosition
 
         Task {
-            try? await Task.sleep(for: .seconds(1))
+            try? await Task.sleep(for: .seconds(0.1))
 
             // Restore the original materials
             if var updatedModelComponent = tappedEntity.components[ModelComponent.self] {

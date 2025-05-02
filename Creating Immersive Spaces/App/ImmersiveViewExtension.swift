@@ -23,7 +23,7 @@ extension ImmersiveView {
         let dynamicEntities = findEntitiesWithComponent(rootEntity, componentType: DynamicComponent.self)
         for (entity, comp) in dynamicEntities {
             print("add entity \(entity.name) with id \(comp.dynamicId)")
-            // Register the obejct with the C3D SDK. This method will post the object's information.
+            // Register the object with the C3D SDK. This method will post the object's information.
             Task {
                 await objManager.registerDynamicObject(id: comp.dynamicId, name: comp.name, mesh: comp.mesh)
             }

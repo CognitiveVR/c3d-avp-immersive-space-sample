@@ -9,7 +9,7 @@ import RealityKit
 import Cognitive3DAnalytics
 
 /// The DynamicComponent is used for the dynamic objects feature in the C3D analytics SDK for Swift.
-// TODO: change this to inherhit from a class defined in the C3D SDK?
+// TODO: change this to inherit from a class defined in the C3D SDK?
 // Ensure you register this component in your app’s delegate using:
 // DynamicComponent.registerComponent()
 public struct DynamicComponent: Component, Codable, Sendable {
