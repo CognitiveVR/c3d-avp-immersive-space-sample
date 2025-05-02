@@ -128,7 +128,7 @@ struct ImmersiveView: View {
         modelComponent.materials = [highlightMaterial]
         tappedEntity.components[ModelComponent.self] = modelComponent
         var tappedEntityPosition = tappedEntity.position
-        let randomLength = Float.random(in: -0.1...0.1)
+        let randomLength = Float.random(in: 0...0.1)
         tappedEntityPosition += [0,0,randomLength]
         tappedEntity.position = tappedEntityPosition
 

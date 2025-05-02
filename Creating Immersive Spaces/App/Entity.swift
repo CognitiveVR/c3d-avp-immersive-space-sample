@@ -98,8 +98,8 @@ extension Entity {
         )
 
         // send the event
-        let success = rocksCreatedEvent.send()
-        print(rocksCreatedEvent, success)
+        _ = rocksCreatedEvent.send()
+//        print(rocksCreatedEvent, success)
 
         // set a custom session property with the number of rocks created
         Cognitive3DAnalyticsCore.shared.setSessionProperty(key: "numRocks", value: modelCount)

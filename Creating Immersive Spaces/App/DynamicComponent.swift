@@ -28,10 +28,10 @@ public struct DynamicComponent: Component, Codable, Sendable {
     public var updateRate: Float = 0.1
 
     ///  Meters the object must move to record new data.
-    public var positionThreshod: Float = 0.01
+    public var positionThreshold: Float = 0.01
 
     ///  Degrees the object must rotate to record new data.
-    public var rotationThreshod: Float = 0.1
+    public var rotationThreshold: Float = 0.1
 
     /// Percent the object must scale to record new data.
     public var scaleThreshold: Float = 0.1
@@ -44,8 +44,8 @@ public struct DynamicComponent: Component, Codable, Sendable {
         mesh: String = "",
         syncWithGaze: Bool = true,
         updateRate: Float = 0.1,
-        positionThreshod: Float = 0.01,
-        rotationThreshod: Float = 0.1,
+        positionThreshold: Float = 0.01,
+        rotationThreshold: Float = 0.1,
         scaleThreshold: Float = 0.1
     ) {
         self.dynamicId = dynamicId
@@ -53,8 +53,8 @@ public struct DynamicComponent: Component, Codable, Sendable {
         self.mesh = mesh
         self.syncWithGaze = syncWithGaze
         self.updateRate = updateRate
-        self.positionThreshod = positionThreshod
-        self.rotationThreshod = rotationThreshod
+        self.positionThreshold = positionThreshold
+        self.rotationThreshold = rotationThreshold
         self.scaleThreshold = scaleThreshold
     }
 }
