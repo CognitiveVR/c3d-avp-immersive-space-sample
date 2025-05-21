@@ -42,7 +42,7 @@ struct EntryPoint: App {
         settings.allSceneData = [sceneData]
 
         settings.loggingLevel = .all
-        settings.isDebugVerbose = false
+        settings.isDebugVerbose = true
 
         let apiKey = Bundle.main.object(forInfoDictionaryKey: "APPLICATION_API_KEY") as? String ?? "default-value"
         settings.apiKey = apiKey
@@ -54,8 +54,8 @@ struct EntryPoint: App {
         core.setParticipantId(uuidString)
         
         // create a short list of random names in a string array
-        let randomFirstNames = ["Alice", "Bob", "Charlie", "David", "Emma"]
-        let randomLastNames = ["Anderson", "Brown", "Clark", "Davis", "Evans"]
+        let randomFirstNames = ["Alice", "Bob", "Charlie", "David", "Emma", "Fred", "George", "Horst", "Inigo", "Jack", "Kate", "Liam", "Mia", "Nora", "Oswald", "Peter", "Quint", "Rene", "Sam", "Thomas"]
+        let randomLastNames = ["Anderson", "Brown", "Clark", "Davis", "Evans", "Fisher", "Green", "Harrison", "Jackson", "King", "Lopez", "Martin", "Moore", "Nunes", "Owen", "Perez", "Quintana", "Ramos", "Smith", "Taylor"]
         let randomFirstNameIndex = Int.random(in: 0..<randomFirstNames.count)
         let randomLastNameIndex = Int.random(in: 0..<randomLastNames.count)
         let randomFullName = "\(randomFirstNames[randomFirstNameIndex]) \(randomLastNames[randomLastNameIndex])"
@@ -67,6 +67,7 @@ struct EntryPoint: App {
         Cognitive3DAnalyticsCore.shared.setSessionProperty(key: "booleanFalseProperty", value: false)
         Cognitive3DAnalyticsCore.shared.setSessionProperty(key: "numericIntegerProperty", value: 42)
         Cognitive3DAnalyticsCore.shared.setSessionProperty(key: "numericFloatProperty", value: 55.1)
+        Cognitive3DAnalyticsCore.shared.setSessionProperty(key: "numericLargeFloatProperty", value: 55.123456789012345678901234567890)
 
         // Start synchronous initialization
         Task {

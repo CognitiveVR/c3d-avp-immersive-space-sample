@@ -10,6 +10,7 @@
 		4A2E6D992DC54B6600B678F3 /* DynamicComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6D972DC54B6600B678F3 /* DynamicComponent.swift */; };
 		4A50EBF22DD554AA003C928E /* ImmersiveView+DynamicObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50EBF12DD554AA003C928E /* ImmersiveView+DynamicObject.swift */; };
 		4A50EBF62DD554CA003C928E /* DynamicObjectSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50EBF52DD554CA003C928E /* DynamicObjectSystem.swift */; };
+		4A62CB8B2DDE5E3D0015AF29 /* Cognitive3DAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4A62CB8A2DDE5E3D0015AF29 /* Cognitive3DAnalytics */; };
 		4A6CFAC72DC2A4B50058E77A /* Cognitive3DAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4A6CFAC62DC2A4B50058E77A /* Cognitive3DAnalytics */; };
 		DF02DE882BE17458008047B2 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF02DE872BE17458008047B2 /* Entity.swift */; };
 		DF58AE532BCDC24600C8F737 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF58AE522BCDC24600C8F737 /* MainView.swift */; };
@@ -51,6 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A6CFAC72DC2A4B50058E77A /* Cognitive3DAnalytics in Frameworks */,
+				4A62CB8B2DDE5E3D0015AF29 /* Cognitive3DAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +205,7 @@
 			);
 			mainGroup = DF58AE402BCDC24600C8F737;
 			packageReferences = (
-				4A6CFAC52DC2A4B50058E77A /* XCLocalSwiftPackageReference "../../cvr/c3d-sdk-apple/Samples/Packages/Cognitive3DAnalytics" */,
+				4A62CB892DDE5E3D0015AF29 /* XCLocalSwiftPackageReference "../c3d-sdk-apple/Samples/Packages/Cognitive3DAnalytics" */,
 			);
 			productRefGroup = DF58AE4A2BCDC24600C8F737 /* Products */;
 			projectDirPath = "";
@@ -447,13 +449,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		4A6CFAC52DC2A4B50058E77A /* XCLocalSwiftPackageReference "../../cvr/c3d-sdk-apple/Samples/Packages/Cognitive3DAnalytics" */ = {
+		4A62CB892DDE5E3D0015AF29 /* XCLocalSwiftPackageReference "../c3d-sdk-apple/Samples/Packages/Cognitive3DAnalytics" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../cvr/c3d-sdk-apple/Samples/Packages/Cognitive3DAnalytics";
+			relativePath = "../c3d-sdk-apple/Samples/Packages/Cognitive3DAnalytics";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4A62CB8A2DDE5E3D0015AF29 /* Cognitive3DAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Cognitive3DAnalytics;
+		};
 		4A6CFAC62DC2A4B50058E77A /* Cognitive3DAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Cognitive3DAnalytics;
