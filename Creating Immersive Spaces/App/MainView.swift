@@ -18,9 +18,9 @@ struct MainView: View {
         Text("Immersive Content Example")
             .onAppear {
                 // Start a session
-                Task {
-                    await Cognitive3DAnalyticsCore.shared.startSession()
-                }
+//                Task {
+//                    await Cognitive3DAnalyticsCore.shared.startSession()
+//                }
                 Task {
                     await openImmersiveSpace(id: "ImmersiveScene")
                 }

@@ -41,8 +41,8 @@ struct EntryPoint: App {
         settings.defaultSceneName = sceneData.sceneName
         settings.allSceneData = [sceneData]
 
-        settings.loggingLevel = .all
-        settings.isDebugVerbose = true
+        settings.loggingLevel = .warningsAndErrors
+        settings.isDebugVerbose = false
 
         let apiKey = Bundle.main.object(forInfoDictionaryKey: "APPLICATION_API_KEY") as? String ?? "default-value"
         settings.apiKey = apiKey
@@ -76,6 +76,10 @@ struct EntryPoint: App {
                 // Register code related to dynamic objects
                 configureDynamicObject(settings)
                 core.config?.shouldEndSessionOnBackground = false
+                print("Cognitive3D Analytics configured successfully.")
+
+                print("Cognitive3D Analytics start session")
+                _ = await Cognitive3DAnalyticsCore.shared.startSession()
             } catch {
                 print("Failed to configure Cognitive3D Analytics: \(error)")
             }
