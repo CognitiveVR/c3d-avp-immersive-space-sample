@@ -41,7 +41,7 @@ struct EntryPoint: App {
         settings.defaultSceneName = sceneData.sceneName
         settings.allSceneData = [sceneData]
 
-        settings.loggingLevel = .warningsAndErrors
+        settings.loggingLevel = .all
         settings.isDebugVerbose = false
 
         let apiKey = Bundle.main.object(forInfoDictionaryKey: "APPLICATION_API_KEY") as? String ?? "default-value"
