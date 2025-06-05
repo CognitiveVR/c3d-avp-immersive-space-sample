@@ -6,7 +6,6 @@ The app's main view.
 */
 
 import SwiftUI
-import Cognitive3DAnalytics
 
 struct MainView: View {
     /// The environment value to get the `OpenImmersiveSpaceAction` instance.
@@ -17,10 +16,6 @@ struct MainView: View {
         // open a new `ImmersiveSpace` environment.
         Text("Immersive Content Example")
             .onAppear {
-                // Start a session
-                Task {
-                    await Cognitive3DAnalyticsCore.shared.startSession()
-                }
                 Task {
                     await openImmersiveSpace(id: "ImmersiveScene")
                 }
